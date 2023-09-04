@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animasi</title>
+  
+  <link href="css/bootstrap.css" rel="stylesheet">
+  
+  <style>
+    #stage {
+      background-image: url("background.jpg"); min-height: 250px;
+      background-position: 10px
+    }
+    .panah {
+      margin: 2em;
+    }
+  </style>
+</head>
+
+<script src="js/jquery.js"></script>
+<body>
+  <div id="stage" class="d-flex justify-content-center align-items-center">
+    <div id="sprite">
+  <img id="objek" src="gambar/kanan-1.png" style="height: 140px;">   
+    </div>
+  </div>
+  
+  <div class="d-flex justify-content-center">
+    
+    <div class="panah"> 
+    <a href="#" class="btn btn-outline-primary" id="panah-kiri">&lArr;</a>
+
+    </div>
+    <div class="panah">
+      <a href="#" class="btn btn-outline-primary" id="panah-kanan">&rArr;</a>
+      
+    </div>
+  </div>
+  
+ 
+<script>
+  var langkahkanan = 1;
+  var langkahkiri = 1;
+  var jumlahlangkah = 4;
+  var posisibackgroud = 10;
+ 
+     
+   
+   $(document).ready(function () {
+    $("#panah-kanan").click(function () {
+      langkahkanan++;
+      posisibackgroud = posisibackgroud -5;
+      if (langkahkanan == jumlahlangkah) {
+       langkahkanan = 1; 
+      }
+      $("#objek").attr("src","gambar/kanan-" + langkahkanan + ".png");
+      $("#stage").css("background-position-x", posisibackgroud);
+    })
+    $("#panah-kiri").click(function () {
+      langkahkiri++;
+      posisibackgroud = posisibackgroud + 8;
+      if (langkahkiri == jumlahlangkah){
+        langkahkiri = 1;
+      }
+      $("#objek").attr("src","gambar/kiri-" + langkahkiri + ".png");
+      $("#stage").css("background-position-x", posisibackgroud);
+    })
+  })
+ 
+</script>
+</body>
+
+</html>
